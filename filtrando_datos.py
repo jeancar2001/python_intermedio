@@ -79,8 +79,8 @@ def run(valor):
 
 
 def main():
-    a = list(filter(lambda i: i["age"]>18,DATA))
-    a = list(map(lambda i:print(run(i["name"])),DATA))
+    a = list(filter(lambda i: i["age"]>18 ,DATA))
+    a = list(map(lambda i: print(i["name"]),DATA))
 
 if __name__ == "__main__":
     main()
