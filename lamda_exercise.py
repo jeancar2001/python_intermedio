@@ -1,11 +1,23 @@
-lista = [1,2,3,4,5,6,7,8,9]
+lista = [1,2,3,4,5,6,8,9]
 
 def run(number):
-    a = []
-    for i in number:
-        if i >5:
+    try:    
+      a = []
+      for i in lista:
+          if i >5:
             a.append(i)
-    return(a)
+          if i==7:
+            print('''excepcion encontrada
+             lista actualmente''')
+            print(a)
+            raise Exception('Excepcion i igual a 7')
+    except Exception as ven:
+      print('''ocurrio una excepcion''')
+      print(ven)
+      exit()
+    else:      
+      print('igual me ejecuto')      
+      return(a)
 
 
 palindromo = lambda number: run(number)
