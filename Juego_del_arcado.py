@@ -1,4 +1,3 @@
-from ntpath import join
 import os
 import random
 
