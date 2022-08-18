@@ -9,7 +9,7 @@ def archivo():
 
 def main():
     word = archivo()
-    a = {i:{b:"___ "} for i,b in enumerate(word)}
+    a = {i:{b.upper():"___ "} for i,b in enumerate(word)}
     os.system("clear")
     while True:
         print(word)
@@ -27,7 +27,11 @@ def main():
             print(f)
             continue
         z = [i for i,p in enumerate(word) if p == word_user ]
-        
+        if len(z)==0:
+            os.system("clear")
+            continue
+        print(z)
+        break
         
         
 if __name__=="__main__":
