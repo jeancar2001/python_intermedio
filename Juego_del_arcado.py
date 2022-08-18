@@ -25,6 +25,7 @@ def main():
     word_sin_tilde = tildes(word,0,1)
     a = {i[0]:"___ " for i in enumerate(word)}
     os.system("clear")
+    print("Bienvenido al Juego de ahorcado")
     while True:
         print("\n\n")
         print("".join([i for i in a.values()]))
@@ -36,6 +37,8 @@ def main():
             word_user = input("Ingrese una letra: ")
             if word_user.isnumeric() or len(word_user)==0:
                 raise Exception ("Coloque solo letras en el espacio")
+            if len(word_user)>1:
+                raise Exception ("Debe colocar una sola letra")
         except Exception as f:
             os.system("clear")
             print(f)
