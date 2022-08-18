@@ -9,34 +9,26 @@ def archivo():
 
 def main():
     word = archivo()
-    contador = 0
+    a = {i:{b:"___ "} for i,b in enumerate(word)}
+    os.system("clear")
     while True:
-        a = {i:{b:"___ "} for i,b in enumerate(word)}
-        while True:
+        print(word)
+        print(a)
+        print("\n\n")
+        b = [b for i in a.values() for b in i.values()]
+        print("".join(b))
+        print("\n")
+        try:
+            word_user = input("Ingrese una letra: ")
+            if word_user.isnumeric():
+                raise Exception ("Coloque solo letras en el espacio")
+        except Exception as f:
             os.system("clear")
-            print(a)
-            print("\n\n")
-            if contador == 1:
-                print("pierdes una vida")
-                contador = 0
-            b = [b for i in a.values() for b in i.values()]
-            print("".join(b))
-            print("\n")
-            try:
-                word_user = input("Ingrese una letra: ")
-                if word_user.isnumeric():
-                    raise Exception ("Coloque solo letras en el espacio")
-            except Exception as f:
-                os.system("clear")
-                print(f)
-                continue
-            z = [i for i,p in enumerate(word) if p == word_user ]
-            if len(z)==0:
-                contador += 1
-            
-            
-            break
-        break
+            print(f)
+            continue
+        z = [i for i,p in enumerate(word) if p == word_user ]
+        
+        
         
 if __name__=="__main__":
     main()
