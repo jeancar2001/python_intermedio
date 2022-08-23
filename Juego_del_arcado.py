@@ -1,4 +1,3 @@
-from __future__ import print_function
 import os
 import random
 
@@ -17,6 +16,58 @@ def reemplazo(lista,word,dict):
     for i in lista:
         dict[i]=word[i].upper()+" "
     return dict
+def drew(number):
+    drew = ['''
+      +---+
+      |   |
+          |
+          |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+          |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+      |   |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|   |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+          |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     /    |
+          |
+    =========''', '''
+      +---+
+      |   |
+      O   |
+     /|\  |
+     / \  |
+          |
+    =========''']
+    return drew[number]
 
 
 
@@ -34,6 +85,8 @@ def main():
         print("\n")
         print(f"VIDAS: {vida}")
         print("\n\n")
+        print(drew(vida))
+        print("\n")
         print("".join([i for i in a.values()]))
         print("\n")
         t = list(filter(lambda i:i=="___ ",a.values()))
@@ -67,18 +120,20 @@ Puntuacion: {puntuacion}
             os.system("clear")
             print("Ingrese otra letra no repetida")
             continue
-        word_user_list.append(word_user)
+        else:
+            word_user_list.append(word_user)
         z = [i[0] for i in enumerate(word_sin_tilde) if i[1]==word_user]+[i[0] for i in enumerate(word_tilde) if i[1]==word_user]
         if len(z)==0:
             os.system("clear")
             vida -= 1
             if vida>0:
                 print("PIERDES UNA VIDA")
-            puntuacion -= 10
+            puntuacion -= 5
             continue
         a = reemplazo(z,word,a)
         puntuacion += 20
         os.system("clear")
+        print("Bien sigue asi")
         
         
 if __name__=="__main__":
